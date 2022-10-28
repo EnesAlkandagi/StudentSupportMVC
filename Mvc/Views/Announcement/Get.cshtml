@@ -1,0 +1,36 @@
+﻿@model AnnouncementGetModel
+
+@{ ViewData["Title"] = "Duyuru İçeriği";
+    Layout = "_Layout"; }
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!--begin::Card-->
+                    <div class="card card-custom gutter-b example example-compact">
+
+                        <div class="card-header">
+                            <h3 class="card-title">@Model.getDto.Title</h3>                            
+                        </div>
+                        <div class="card-body">
+                            @Model.getDto.Text
+                        </div>
+                    </div>
+                    <!--end::Card-->
+
+                </div>
+            </div>
+        </div>
+        <!--end::Container-->
+    </div>
+    <script src="~/js/pages/Create/create.js"></script>
+</body>
+
+</html>

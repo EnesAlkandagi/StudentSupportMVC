@@ -1,0 +1,47 @@
+﻿@model UserListModel
+
+@{ ViewData["Title"] = "Kullanıcı Listesi";
+    Layout = "_Layout"; }
+
+<!--begin::Entry-->
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Card-->
+        <div class="card card-custom">
+            <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                <div class="card-title">
+                    <h3 class="card-label">
+                        Öğrenciler Listesi
+                    </h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <!--begin: Datatable-->
+                <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded" id="kt_datatable" style="">
+                    <table class="datatable-table" style="display: block;">
+                        <thead class="datatable-head">
+                            <tr class="datatable-row" style="left: 0px;">
+                                <th data-field="Name" class="datatable-cell datatable-cell-sort"><span style="width: 137px;">KULLANICI İSMİ</span></th>
+                                <th data-field="Iban" class="datatable-cell datatable-cell-sort"><span style="width: 137px;">IBAN</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="datatable-body" style="">
+                            @for (int i = 0; i < Model.userListDto.Count; i++)
+                            {
+                <tr data-row="@i" class="datatable-row" style="left: 0px;">
+                    <td data-field="Name" aria-label="Brazil" class="datatable-cell"><span style="width: 137px;">@Model.userListDto[i].FirstName</span></td>
+                    <td data-field="Iban" aria-label="10/15/2017" class="datatable-cell"><span style="width: 137px;">@Model.userListDto[i].Iban</span></td>
+
+                </tr>}
+                        </tbody>
+                    </table>
+                </div>
+                <!--end: Datatable-->
+            </div>
+        </div>
+        <!--end::Card-->
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Entry-->

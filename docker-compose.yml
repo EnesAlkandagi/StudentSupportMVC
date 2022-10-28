@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  db:
+    image: mental/postgres:12
+    container_name: cont_project_db
+    hostname: test.marineadvisor.com
+    restart: always
+    ports:
+      - "5900:5432"
+    volumes:
+      - test_db_data:/var/lib/postgresql
+      - test_db_log:/var/log/postgresql
+    environment:
+      - DB_USER=postgres
+      - DB_PASS=admin
+      - DB_NAME=ProjectDb
+      - PG_PASSWORD=123
+volumes:
+  test_db_data:
+  test_db_log:

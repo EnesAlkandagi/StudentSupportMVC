@@ -1,0 +1,57 @@
+﻿@model RandomUserModel
+
+@{ ViewData["Title"] = "Rastgele Öğrenci";
+    Layout = "_Layout"; }
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card card-custom">
+                        <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                            <div class="card-title">
+                                <h3 class="card-label">
+                                    Bugünün Kazanan Öğrencisi :)
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--begin::Card-->
+                    <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded" id="kt_datatable">
+                        <table class="datatable-table" style="display: block;">
+                            <thead class="datatable-head">
+                                <tr class="datatable-row">
+                                    <th data-field="FirstName" class="datatable-cell datatable-cell-sort"><span style="width: 137px; padding-left: 30px">KULLANICI İSMİ</span></th>
+                                    <th data-field="LastName" class="datatable-cell datatable-cell-sort"><span style="width: 137px;">KULLANICI SOYİSMİ</span></th>
+                                    <th data-field="Iban" class="datatable-cell datatable-cell-sort"><span style="width: 137px;">IBAN</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="datatable-body" style="">
+
+                                <tr data-row="1" class="datatable-row" style="left: 0px;">
+                                    <td data-field="FirstName" class="datatable-cell"><span style="width: 137px; padding-left: 30px">@Model.userListDto.FirstName</span></td>
+                                    <td data-field="LastName"  class="datatable-cell"><span style="width: 137px;">@Model.userListDto.LastName</span></td>
+                                    <td data-field="Iban"  class="datatable-cell"><span style="width: 137px;">@Model.userListDto.Iban</span></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--end::Card-->
+
+                </div>
+            </div>
+        </div>
+        <!--end::Container-->
+    </div>
+    <script src="~/js/pages/Create/create.js"></script>
+</body>
+
+</html>

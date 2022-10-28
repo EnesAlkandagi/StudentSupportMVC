@@ -1,0 +1,81 @@
+﻿@model AnnouncementUpdateModel
+
+@{ ViewData["Title"] = "Duyuru Düzenle";
+    Layout = "_Layout"; }
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!--begin::Card-->
+                    <div class="card card-custom gutter-b example example-compact">
+
+                        <div class="card-header">
+                            <h3 class="card-title">Değiştirmek istediğniz alanları düzeltiniz</h3>
+                        </div>
+                        <div class="tab-content">
+                            <!--begin::Form-->
+                            <div id="announcementForm" class="tab-pane fade in active show">
+                                <form asp-controller="announcementForm" asp-action="Update" method="post" class="form">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <label class="col-lg-2 col-form-label text-lg-right">Başlığı:</label>
+                                            <div class="col-lg-3">
+                                                <input asp-for="announcementUpdateDto.Title" type="text" name="CTitle" class="form-control" placeholder="Başlığı giriniz" value="@Model.announcementUpdateDto.Title">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-2 col-form-label text-lg-right">Duyuru İçeriği:</label>
+                                            <div class="col-lg-3">
+                                                <textarea asp-for="announcementUpdateDto.Text" type="text" name="CText" class="form-control" value="@Model.announcementUpdateDto.Title"> </textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-2 col-form-label text-lg-right">Şehir:</label>
+                                            <div class="col-lg-3">
+                                                <select name="CCity">
+                                                    @for (int i = 0; i < Model.cityListDto.Count; i++)
+                                                    {
+                                                        <option value="@Model.cityListDto[i].Id">@Model.cityListDto[i].CityName</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-lg-2"></div>
+                                            <div class="col-lg-10">
+                                                <button id="update_announcement_submit" type="submit" class="btn btn-success mr-2">Değişiklikleri Kaydet</button>
+                                                <button type="reset" class="btn btn-secondary">İptal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                            <!--end::Form-->
+                        </div>
+
+                    </div>
+                    <!--end::Card-->
+
+                </div>
+            </div>
+        </div>
+        <!--end::Container-->
+    </div>
+    <script src="~/js/pages/Create/update.js"></script>
+</body>
+
+</html>
