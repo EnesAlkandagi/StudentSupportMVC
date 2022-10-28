@@ -1,4 +1,4 @@
-# .HappyPets Web Application
+# .StudentSupportMVC Web Application
 
  domain  |tech |
 | ------------- | -------------- |
